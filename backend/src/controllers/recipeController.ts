@@ -19,11 +19,11 @@ const getRecipes = async (req: Request, res: Response, next: NextFunction) => {
       switch (filterType) {
         case "ingredient":
           url = `${BASE_URL}/filter.php?i=${filterValue}`;
-        break;
-        case 'country':
+          break;
+        case "country":
           url = `${BASE_URL}/filter.php?a=${filterValue}`;
           break;
-        case 'category':
+        case "category":
           url = `${BASE_URL}/filter.php?c=${filterValue}`;
           break;
         default:
@@ -42,10 +42,13 @@ const getRecipeById = async (req: Request, res: Response, next: NextFunction) =>
   try {
     const recipeId = req.params.id;
     const response = await axios.get(`${BASE_URL}/lookup.php?i=${recipeId}`);
+    if (!response.data.meals) {
+      throw createAppError("No recipe found", 404);
+    }
     res.json(response.data);
   } catch (error) {
     next(error);
   }
 };
 
-export { getRecipes, getRecipeById};
+export { getRecipes, getRecipeById };
