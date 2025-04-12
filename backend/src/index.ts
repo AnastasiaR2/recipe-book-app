@@ -1,7 +1,7 @@
-import express, { Request, Response, Application } from 'express';
-import cors from 'cors';
-import dotenv from 'dotenv';
-import { errorHandler } from './middlewares/errorHandler';
+import express, { Application } from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+import { errorHandler } from "./middlewares/errorHandler";
 
 dotenv.config();
 
