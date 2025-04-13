@@ -1,5 +1,7 @@
+import RecipeListPage from "./pages/RecipeListPage";
+
 const App = () => {
-  return <></>;
+  return <RecipeListPage />;
 };
 
 export default App;

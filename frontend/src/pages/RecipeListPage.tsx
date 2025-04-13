@@ -10,12 +10,7 @@ import {
   CardContent,
 } from "@mui/material";
 import axios from "../api/axios";
-
-interface Recipe {
-  idMeal: string;
-  strMeal: string;
-  strMealThumb: string;
-}
+import { type Recipe } from "../types/types";
 
 const RecipeListPage = () => {
   const navigate = useNavigate();
@@ -42,7 +37,7 @@ const RecipeListPage = () => {
 
   return (
     <Container>
-      <Typography variant="h3" gutterBottom>
+      <Typography variant="h4" gutterBottom>
         {filterType && filterValue
           ? `Recipes filtered by ${filterType}: ${filterValue}`
           : "All Recipes"}
